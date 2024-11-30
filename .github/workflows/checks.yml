@@ -8,7 +8,7 @@ jobs:
     name: Test and Lint
     runs-on: ubuntu-latest
     steps:
-      - name : Set up a Docker Buildx
+      - name: Set up a Docker Buildx
         uses: docker/setup-buildx-action@v2
 
       - name: Login to Docker Hub
@@ -19,7 +19,7 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-        
+
       - name: Install Docker Compose
         run: sudo apt-get update && sudo apt-get install -y docker-compose
 
@@ -29,5 +29,5 @@ jobs:
       - name: Verify Docker Compose
         run: docker-compose --version
 
-      - name: Lint
-        run: docker-compose run --rm app sh -c "flake8"
+      - name: Lint with flake8
+        run: docker-compose run --rm app sh -c "pip install flake8 && flake8"
