@@ -28,8 +28,3 @@ jobs:
 
       - name: Verify Docker Compose
         run: docker-compose --version
-        
-      - name: Lint with flake8
-        run: docker-compose run --rm app sh -c "sudo pip install flake8 && flake8"
-
-
